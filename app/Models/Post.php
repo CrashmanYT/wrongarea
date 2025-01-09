@@ -20,6 +20,7 @@ class Post extends Model
         'content',
         'thumbnail',
         'status',
+        'views',
         'user_id',
         'category_id',
     ];

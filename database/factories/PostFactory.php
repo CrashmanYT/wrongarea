@@ -25,6 +25,7 @@ class PostFactory extends Factory
             'thumbnail' => $faker->imageUrl(),
             'category_id' => $faker->numberBetween(1,10),
             'user_id' => $faker->numberBetween(1,1),
+            'views' => $faker->numberBetween(1,1000),
             'created_at' => $faker->dateTime(),
             'updated_at' => $faker->dateTime(),
         ];

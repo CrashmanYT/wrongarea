@@ -20,6 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->enum('status', ['draft', 'rejected', 'archived' ,'published'])->default('draft');
+            $table->integer('views')->default(0);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();
