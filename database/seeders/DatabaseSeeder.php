@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
+use App\Models\PostView;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -24,8 +26,10 @@ class DatabaseSeeder extends Seeder
             'bio' => 'This is my Bio',
             'role' => 'admin',
         ]);
+        User::factory()->count(10)->create();
         Category::factory()->count(10)->create();
-        Post::factory()->count(10)->create();
-
+        Post::factory()->count(100)->create();
+        Comment::factory()->count(10)->create();
+        PostView::factory()->count(1000)->create();
     }
 }

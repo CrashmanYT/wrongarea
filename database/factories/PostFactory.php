@@ -26,8 +26,9 @@ class PostFactory extends Factory
             'category_id' => $faker->numberBetween(1,10),
             'user_id' => $faker->numberBetween(1,1),
             'views' => $faker->numberBetween(1,1000),
-            'created_at' => $faker->dateTime(),
-            'updated_at' => $faker->dateTime(),
+            'status' => $faker->randomElement(['published','draft', 'archived', 'rejected']),
+            'created_at' => $faker->dateTimeBetween('-1 year', 'now'),
+            'updated_at' => $faker->dateTimeBetween($this->faker->dateTimeThisYear(), 'now'),
         ];
     }
 }

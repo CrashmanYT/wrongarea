@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
-use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -21,7 +20,7 @@ class PostResource extends Resource
     protected static ?string $model = Post::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
-
+    protected static ?string $navigationGroup = 'Blog';
     public static function form(Form $form): Form
     {
         return $form
@@ -117,7 +116,8 @@ class PostResource extends Resource
                     Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
                 ]),
-            ]);
+            ])->defaultPaginationPageOption(5)
+            ->openRecordUrlInNewTab();
     }
 
     public static function getRelations(): array
