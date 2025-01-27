@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('fullname')->nullable();
             $table->text('bio')->nullable();
             $table->string('photo_profile')->nullable();
-            $table->enum('role', ['admin', 'creator' ,'user'])->default('user');
+            $table->unsignedBigInteger('role_id');
             $table->string('password');
             $table->rememberToken();
             $table->softDeletes();

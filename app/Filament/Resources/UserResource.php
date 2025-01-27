@@ -74,7 +74,7 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('photo_profile')
                     ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
-                Tables\Columns\TextColumn::make('role')
+                Tables\Columns\TextColumn::make('role.name')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                             'admin' => 'danger',
@@ -132,5 +132,10 @@ class UserResource extends Resource
             ->withoutGlobalScopes([
                 SoftDeletingScope::class,
             ]);
+    }
+
+    public static function canAccess(): bool
+    {
+        return auth()->check() && auth()->user()?->getAttribute('role')?->name === 'admin';
     }
 }

@@ -46,8 +46,10 @@ class PostResource extends Resource
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'name')
                     ->required()
+                    ->native(false)
                     ->default(auth()->id()),
                 Forms\Components\Select::make('category_id')
+                    ->native(false)
                     ->relationship( 'category', 'name' ),
                 Forms\Components\TagsInput::make('tags')
                     ->splitKeys(['Tab', ' '])

@@ -4,8 +4,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\AnalyticsResource\Pages;
 use App\Filament\Resources\AnalyticsResource\Widgets\LatestComments;
+use App\Filament\Resources\AnalyticsResource\Widgets\MostViewPost;
 use App\Filament\Resources\AnalyticsResource\Widgets\PostCreatedChart;
 use App\Filament\Resources\AnalyticsResource\Widgets\StatsOverview;
+use App\Filament\Resources\AnalyticsResource\Widgets\UserGrowthChart;
 use App\Filament\Resources\AnalyticsResource\Widgets\ViewsChart;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -59,7 +61,9 @@ class AnalyticsResource extends Resource
 
         return [
             ViewsChart::class,
-            PostCreatedChart::class
+            PostCreatedChart::class,
+            MostViewPost::class,
+            UserGrowthChart::class,
         ];
     }
 

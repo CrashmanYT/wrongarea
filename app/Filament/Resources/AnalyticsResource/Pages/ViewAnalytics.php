@@ -8,7 +8,7 @@ use Filament\Resources\Pages\Page;
 class ViewAnalytics extends Page
 {
     protected static string $resource = AnalyticsResource::class;
-
+    protected ?string $heading = 'Analytics';
     protected static string $view = 'filament.resources.analytics-resource.pages.view-analytics';
 
     protected function getHeaderWidgets(): array
